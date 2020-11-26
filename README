@@ -1,6 +1,6 @@
 =head1 Name
 
-Benchmark.pm6
+Benchmark
 
 =head1 Synopsis
 
@@ -19,7 +19,7 @@ Benchmark.pm6
 
 =head1 Description
 
-A simple benchmarking module with an interface similar to Perl 5's
+A simple benchmarking module with an interface similar to Perl's
 Benchmark.pm.  However, rather than output results to $*OUT, the results
 are merely returned so that you can output them however you please.
 
