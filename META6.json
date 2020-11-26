@@ -1,7 +1,7 @@
 {
     "name"        : "Benchmark",
     "version"     : "*",
-    "description" : "Benchmark running times of Perl 6 code",
+    "description" : "Benchmark running times of Raku code",
     "build-depends" : [ ],
     "test-depends" : [
         "Test"
@@ -10,5 +10,5 @@
     "provides" : {
         "Benchmark" : "lib/Benchmark.pm6"
     },
-    "source-url"  : "git://github.com/perlpilot/benchmark.git"
+    "source-url"  : "git://github.com/raku-community-modules/Benchmark.git"
 }
