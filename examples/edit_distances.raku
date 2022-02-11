@@ -1,9 +1,8 @@
-use v6;
 use Text::Levenshtein::Damerau; 
 use Text::Table::Simple;
 use Benchmark;
 
-# benchmark.p6 <number of runs>
+# benchmark.raku <number of runs>
 sub MAIN(Int $runs = 10) {
     for 1,5,20 -> Int $multiplier {
         my Str $str1 = "four"  x $multiplier;

@@ -1,14 +1,29 @@
 {
-    "name"        : "Benchmark",
-    "version"     : "*",
-    "description" : "Benchmark running times of Raku code",
-    "build-depends" : [ ],
-    "test-depends" : [
-        "Test"
-    ],
-    "depends" : [ ],
-    "provides" : {
-        "Benchmark" : "lib/Benchmark.pm6"
-    },
-    "source-url"  : "git://github.com/raku-community-modules/Benchmark.git"
+  "auth": "zef:raku-community-modules",
+  "authors": [
+    "Jonathan Scott Duff",
+    "Raku Community"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "Simple benchmarking",
+  "license": "Artistic-2.0",
+  "name": "Benchmark",
+  "provides": {
+    "Benchmark": "lib/Benchmark.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "git://github.com/raku-community-modules/Benchmark.git",
+  "tags": [
+    "CPAN5",
+    "BENCHMARK",
+    "DEVELOPMENT"
+  ],
+  "test-depends": [
+    "Test"
+  ],
+  "version": "1.0"
 }
