@@ -14,7 +14,7 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - macOS-latest
+          - macos-latest
           - windows-latest
         raku-version:
           - 'latest'
@@ -24,5 +24,7 @@ jobs:
       - uses: Raku/setup-raku@v1
         with:
           raku-version: ${{ matrix.raku-version }}
+      - name: Install App::Prove6
+        run: zef install --/test App::Prove6
       - name: Run Tests
-        run: raku run-tests
+        run: prove6 -l t
