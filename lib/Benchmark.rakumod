@@ -6,10 +6,22 @@ my multi sub timethis(UInt $count, Str:D $code) {
 
 my multi sub timethis(UInt $count, &code) { 
     my $start-time := time;
-    code() for ^$count;
+
+    my @exec-times = gather 
+      for ^$count {
+          LEAVE take now - ENTER now; 
+          code()
+      };
+
     my $end-time   := time;
     my $difference := $end-time - $start-time;
-    ($start-time, $end-time, $difference, $difference / $count)
+
+    my $mean = @exec-times.sum / $count;
+    my $sd = sqrt( @exec-times.map( { ($_ - $mean)**2 } ).sum / $count);
+    my $min = @exec-times.min;
+    my $max= @exec-times.max;
+
+    ($start-time, $end-time, $difference, $difference / $count, $min, $mean, $max, $sd)
 }
 
 my sub timethese(UInt $count, %h) is export {

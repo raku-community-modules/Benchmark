@@ -1,0 +1,13 @@
+use Benchmark;
+use Test;
+
+my $runs = 10;
+
+plan $runs + 2;
+
+my $code-sub = sub { ok 1; sleep rand };
+
+my ($start-time, $end-time, $difference, $avg, $min, $mean, $max, $sd) = timethis($runs, $code-sub);
+
+ok $min <= $mean <= $max;
+ok $sd <= $max;
