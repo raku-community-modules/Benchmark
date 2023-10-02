@@ -27,6 +27,15 @@ DESCRIPTION
 
 A simple benchmarking module with an interface similar to Perl's `Benchmark.pm`. However, rather than output results to `$*OUT`, the results are merely returned so that you can output them however you please.
 
+
+```raku
+use Benchmark;
+
+my ($start, $end, $diff, $avg, $min, $mean, $max, $sd) = timethis(10, { sleep rand });
+say ($start, $end, $diff, $avg, $min, $mean, $max, $sd);
+
+```
+
 AUTHOR
 ======
 
