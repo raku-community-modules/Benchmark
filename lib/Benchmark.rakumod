@@ -22,8 +22,8 @@ my multi sub timethis(UInt:D $count, &code, Bool :$statistics, --> Hash:D[Durati
 
     @exec-times = @exec-times.sort;
 
-    my $min = @exec-times.min;
-    my $max = @exec-times.max;
+    my $min = @exec-times.head;
+    my $max = @exec-times.tail;
 
     my $mid = $count div 2;
     my $median = Duration.new: $count %% 2 ?? @exec-times[($mid - 1),$mid].sum / 2 !! @exec-times[$mid];    
