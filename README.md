@@ -18,7 +18,7 @@ say @stats;
 my %results = timethese 1000, {
     "foo" => sub { ... },
     "bar" => sub { ... },
-}
+};
 say ~%results;
 ```
 
@@ -28,11 +28,20 @@ DESCRIPTION
 A simple benchmarking module with an interface similar to Perl's `Benchmark.pm`. However, rather than output results to `$*OUT`, the results are merely returned so that you can output them however you please.
 
 
+You can also have some basic statistics:
+
 ```raku
 use Benchmark;
 
-my ($start, $end, $diff, $avg, $min, $mean, $max, $sd) = timethis(10, { sleep rand });
-say ($start, $end, $diff, $avg, $min, $mean, $max, $sd);
+%result = timethis(10, { sleep rand }, :statistics);
+say %result;
+say "$_ : %result{$_}" for <min median mean max sd>;
+
+my %results = timethese 5, {
+    "foo" => { sleep rand },
+    "bar" => { sleep rand },
+}, :statistics;
+say ~%results;
 
 ```
 

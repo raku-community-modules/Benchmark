@@ -7,6 +7,7 @@ on:
     tags-ignore:
       - '*'
   pull_request:
+  workflow_dispatch:
 
 jobs:
   raku:
@@ -25,6 +26,6 @@ jobs:
         with:
           raku-version: ${{ matrix.raku-version }}
       - name: Install App::Prove6
-        run: zef install --/test App::Prove6
+        run: zef --verbose install App::Prove6
       - name: Run Tests
         run: prove6 -l t
