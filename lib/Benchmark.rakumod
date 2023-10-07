@@ -1,10 +1,12 @@
+my subset PIntD of Int where * > 0;
+
 my proto sub timethis(|) is export {*}
-my multi sub timethis(UInt $count, Str:D $code) {
+my multi sub timethis(PIntD $count, Str:D $code) {
     use MONKEY-SEE-NO-EVAL;
     timethis $count, { EVAL $code }
 }
 
-my multi sub timethis(UInt $count, &code) { 
+my multi sub timethis(PIntD $count, &code) { 
     my $start-time := time;
     code() for ^$count;
     my $end-time   := time;
@@ -12,7 +14,7 @@ my multi sub timethis(UInt $count, &code) {
     ($start-time, $end-time, $difference, $difference / $count)
 }
 
-my multi sub timethis(UInt:D $count, &code, Bool :$statistics, --> Hash:D[Duration:D]) { 
+my multi sub timethis(PIntD $count, &code, Bool :$statistics, --> Hash:D[Duration:D]) { 
 
     my @exec-times = gather 
       for ^$count {
@@ -35,11 +37,11 @@ my multi sub timethis(UInt:D $count, &code, Bool :$statistics, --> Hash:D[Durati
 }
 
 my proto sub timethese(|) is export {*}
-my multi timethese(UInt $count, %h) {
+my multi timethese(PIntD $count, %h) {
     Map.new: (%h.map: { .key => timethis($count, .value) })
 }
 
-my multi timethese(UInt $count, %h, Bool :$statistics) {
+my multi timethese(PIntD $count, %h, Bool :$statistics) {
     Map.new: (%h.map: { .key => timethis($count, .value, :statistics) })
 }
 
