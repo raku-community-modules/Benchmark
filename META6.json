@@ -16,7 +16,7 @@
   },
   "resources": [
   ],
-  "source-url": "git://github.com/raku-community-modules/Benchmark.git",
+  "source-url": "https://github.com/raku-community-modules/Benchmark.git",
   "tags": [
     "CPAN5",
     "BENCHMARK",
@@ -25,5 +25,5 @@
   "test-depends": [
     "Test"
   ],
-  "version": "1.0"
+  "version": "2.0"
 }

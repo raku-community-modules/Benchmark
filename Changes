@@ -2,5 +2,9 @@ Revision history for Benchmark
 
 {{$NEXT}}
 
+2.0  2023-10-15T14:52:09+02:00
+    - Adding :statistics named argument for richer interface
+    - Hardening the number of test runs to a positive integer
+
 1.0  2022-02-11T19:12:33+01:00
     - First version released on the zef ecosystem

@@ -27,7 +27,6 @@ DESCRIPTION
 
 A simple benchmarking module with an interface similar to Perl's `Benchmark.pm`. However, rather than output results to `$*OUT`, the results are merely returned so that you can output them however you please.
 
-
 You can also have some basic statistics:
 
 ```raku
@@ -42,7 +41,6 @@ my %results = timethese 5, {
     "bar" => { sleep rand },
 }, :statistics;
 say ~%results;
-
 ```
 
 AUTHOR
@@ -55,7 +53,7 @@ COPYRIGHT AND LICENSE
 
 Copyright 2009 - 2016 Jonathan Scott Duff
 
-Copyright 2017 - 2022 Raku Community
+Copyright 2017 - 2023 Raku Community
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

@@ -1,20 +1,12 @@
 my subset PIntD of Int where * > 0;
 
 my proto sub timethis(|) is export {*}
-my multi sub timethis(PIntD $count, Str:D $code) {
+my multi sub timethis(PIntD $count, Str:D $code, Bool :$statistics) {
     use MONKEY-SEE-NO-EVAL;
-    timethis $count, { EVAL $code }
+    timethis $count, { EVAL $code }, :$statistics
 }
 
-my multi sub timethis(PIntD $count, &code) { 
-    my $start-time := time;
-    code() for ^$count;
-    my $end-time   := time;
-    my $difference := $end-time - $start-time;
-    ($start-time, $end-time, $difference, $difference / $count)
-}
-
-my multi sub timethis(PIntD $count, &code, Bool :$statistics, --> Hash:D[Duration:D]) { 
+my multi sub timethis(PIntD $count, &code, Bool :$statistics! where *.so --> Hash:D[Duration:D]) { 
 
     my @exec-times = gather 
       for ^$count {
@@ -36,13 +28,21 @@ my multi sub timethis(PIntD $count, &code, Bool :$statistics, --> Hash:D[Duratio
     return %result;
 }
 
+my multi sub timethis(PIntD $count, &code, Bool :$statistics) { 
+    my $start-time := time;
+    code() for ^$count;
+    my $end-time   := time;
+    my $difference := $end-time - $start-time;
+    ($start-time, $end-time, $difference, $difference / $count)
+}
+
 my proto sub timethese(|) is export {*}
-my multi timethese(PIntD $count, %h) {
-    Map.new: (%h.map: { .key => timethis($count, .value) })
+my multi timethese(PIntD $count, %h, Bool :$statistics! where *.so) {
+    Map.new: (%h.map: { .key => timethis($count, .value, :statistics) })
 }
 
 my multi timethese(PIntD $count, %h, Bool :$statistics) {
-    Map.new: (%h.map: { .key => timethis($count, .value, :statistics) })
+    Map.new: (%h.map: { .key => timethis($count, .value) })
 }
 
 =begin pod
@@ -102,7 +102,7 @@ Jonathan Scott Duff
 
 Copyright 2009 - 2016 Jonathan Scott Duff
 
-Copyright 2017 - 2022 Raku Community
+Copyright 2017 - 2023 Raku Community
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 

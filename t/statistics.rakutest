@@ -3,11 +3,20 @@ use Test;
 
 my $runs = 10;
 
-plan $runs + 2;
+plan 2*($runs + 1);
 
 my $code-sub = sub { ok 1; sleep rand };
+my $code-str = '(^10).pick';
 
 my %result = timethis($runs, $code-sub, :statistics);
 
-ok %result<min> <= %result<mean> <= %result<max>;
-ok %result<min> <= %result<median> <= %result<max>;
+ok .<min> <= (.<mean>&.<median>) <= .<max> given %result;
+
+
+my %h = foo => $code-sub, bar => $code-str;
+%result = timethese $runs, %h, :statistics;
+
+
+ok do given %result.all.value -> Any $_ {
+    .<min> <= (.<mean>&.<median>) <= .<max>
+};
