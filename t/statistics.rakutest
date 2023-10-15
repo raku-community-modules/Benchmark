@@ -1,0 +1,13 @@
+use Benchmark;
+use Test;
+
+my $runs = 10;
+
+plan $runs + 2;
+
+my $code-sub = sub { ok 1; sleep rand };
+
+my %result = timethis($runs, $code-sub, :statistics);
+
+ok %result<min> <= %result<mean> <= %result<max>;
+ok %result<min> <= %result<median> <= %result<max>;
