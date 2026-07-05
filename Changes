@@ -1,10 +1,15 @@
 Revision history for Benchmark
 
 {{$NEXT}}
+    - Fix return value specification (ugexe++)
+    - Add CI badges for each OS
+    - Modernize META
+    - Add full coverage testing
+    - Update copyright year
 
 2.0  2023-10-15T14:52:09+02:00
-    - Adding :statistics named argument for richer interface
-    - Hardening the number of test runs to a positive integer
+    - Add :statistics named argument for richer interface
+    - Harden the number of test runs to a positive integer
 
 1.0  2022-02-11T19:12:33+01:00
     - First version released on the zef ecosystem

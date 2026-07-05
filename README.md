@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/raku-community-modules/Benchmark/workflows/test/badge.svg)](https://github.com/raku-community-modules/Benchmark/actions)
+[![Actions Status](https://github.com/raku-community-modules/Benchmark/actions/workflows/linux.yml/badge.svg)](https://github.com/raku-community-modules/Benchmark/actions) [![Actions Status](https://github.com/raku-community-modules/Benchmark/actions/workflows/macos.yml/badge.svg)](https://github.com/raku-community-modules/Benchmark/actions) [![Actions Status](https://github.com/raku-community-modules/Benchmark/actions/workflows/windows.yml/badge.svg)](https://github.com/raku-community-modules/Benchmark/actions)
 
 NAME
 ====
@@ -53,7 +53,7 @@ COPYRIGHT AND LICENSE
 
 Copyright 2009 - 2016 Jonathan Scott Duff
 
-Copyright 2017 - 2023 Raku Community
+Copyright 2017, 2020, 2022, 2023, 2026 Raku Community
 
 This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
