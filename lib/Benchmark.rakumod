@@ -24,7 +24,7 @@ my multi sub timethis(PIntD $count, &code, Bool :$statistics! where *.so --> Has
     my $mean = Duration.new: @exec-times.sum / $count;
     my $sd = Duration.new: sqrt( @exec-times.map( { ($_ - $mean)**2 } ).sum / $count);
 
-    my Duration %result = :$mean, :$median, :$min, :$max, :$sd;
+    my Duration:D %result = :$mean, :$median, :$min, :$max, :$sd;
     return %result;
 }
 
