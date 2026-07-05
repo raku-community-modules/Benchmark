@@ -1,6 +1,8 @@
 Revision history for Benchmark
 
 {{$NEXT}}
+
+2.1  2026-07-05T11:12:04+02:00
     - Fix return value specification (ugexe++)
     - Add CI badges for each OS
     - Modernize META

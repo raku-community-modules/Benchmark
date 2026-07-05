@@ -4,6 +4,8 @@
     "Jonathan Scott Duff",
     "Raku Community"
   ],
+  "build-depends": [
+  ],
   "depends": [
   ],
   "description": "Simple benchmarking",
@@ -13,6 +15,9 @@
     "Benchmark": "lib/Benchmark.rakumod"
   },
   "raku": "6.d",
+  "resources": [
+  ],
+  "source-url": "https://github.com/raku-community-modules/Benchmark.git",
   "support": {
     "bugtracker": "https://github.com/raku-community-modules/Benchmark/issues",
     "email": "community@raku.org",
@@ -23,5 +28,7 @@
     "BENCHMARK",
     "DEVELOPMENT"
   ],
-  "version": "2.0"
+  "test-depends": [
+  ],
+  "version": "2.1"
 }
